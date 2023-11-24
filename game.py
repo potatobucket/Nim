@@ -11,11 +11,11 @@ def first_or_second(turn = None):
     return turn
 
 def player_choose(tokenCount):
-    if tokens != None:
+    if tokens != 0:
         playerNumber = int(input(f"Tokens left: {tokenCount} | How many tokens do you want to take? (1-3) "))
-    while playerNumber < 1 or playerNumber > 3:
-        playerNumber = int(input(f"Tokens left: {tokenCount} | Please choose a number between 1 and 3. "))
-    return int(tokenCount - playerNumber)
+        while playerNumber < 1 or playerNumber > 3:
+            playerNumber = int(input(f"Tokens left: {tokenCount} | Please choose a number between 1 and 3. "))
+        return int(tokenCount - playerNumber)
 
 def cpu_choose(tokenCount):
     if gameRun == True:
@@ -45,6 +45,7 @@ def check_if_win(totalTokens):
 if __name__ == "__main__":
     turnOrder = first_or_second()
     if turnOrder == "first" or turnOrder == "f":
+        print("Player goes first.")
         while gameRun == True:
             tokens = player_choose(tokens)
             gameRun = check_if_win(tokens)
@@ -52,4 +53,10 @@ if __name__ == "__main__":
             if tokens != None:
                 gameRun = check_if_win(tokens)
     else:
-        print("CPU goes first")
+        print("CPU goes first.")
+        while gameRun == True:
+            tokens = cpu_choose(tokens)
+            gameRun = check_if_win(tokens)
+            tokens = player_choose(tokens)
+            if tokens != None:
+                gameRun = check_if_win(tokens)
