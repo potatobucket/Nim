@@ -21,7 +21,11 @@ def cpu_choose(tokenCount, playerChoice):
         elif tokenCount <= 3 and tokenCount > 0 and tokens != None:
             print(f"Tokens left: {tokenCount} | How many tokens do you want to take? (1-3)")
             cpuNumber = tokenCount
-            slp(1.5)
+            slp(0.5)
+            print("Hm...")
+            slp(1.0)
+            print("Ah ha!")
+            slp(0.5)
             print(f"Computer chooses {cpuNumber} tokens.")
             return int(tokenCount - cpuNumber)
         elif tokenCount == None:
