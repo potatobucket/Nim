@@ -1,3 +1,4 @@
+from slow_print import slow_print
 from time import sleep as slp
 
 tokens = 24
@@ -16,17 +17,17 @@ def cpu_choose(tokenCount, playerChoice):
             print(f"Tokens left: {tokenCount} | How many tokens do you want to take? (1-3)")
             cpuNumber = 4 - playerChoice
             slp(1.5)
-            print(f"Computer chooses {cpuNumber} tokens.")
+            slow_print(f"Computer chooses {cpuNumber} tokens.")
             return tokenCount - cpuNumber
         elif tokenCount <= 3 and tokenCount > 0 and tokens != None:
             print(f"Tokens left: {tokenCount} | How many tokens do you want to take? (1-3)")
             cpuNumber = tokenCount
             slp(0.5)
-            print("Hm...")
+            slow_print("Hm...")
             slp(1.0)
-            print("Ah ha!")
+            slow_print("Ah ha!")
             slp(0.5)
-            print(f"Computer chooses {cpuNumber} tokens.")
+            slow_print(f"Computer chooses {cpuNumber} tokens.")
             return int(tokenCount - cpuNumber)
         elif tokenCount == None:
             pass
