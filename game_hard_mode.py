@@ -5,6 +5,10 @@ tokens = 24
 gameRun = True
 
 def player_choose(tokenCount):
+    """
+Handles the human player's turn. Asks for desired number of tokens to take and\n
+subtracts from total remaining tokens.
+    """
     if tokens != 0:
         playerNumber = int(input(f"Tokens left: {tokenCount} | How many tokens do you want to take? (1-3) "))
         while playerNumber < 1 or playerNumber > 3:
@@ -12,6 +16,11 @@ def player_choose(tokenCount):
         return int(tokenCount - playerNumber), playerNumber
 
 def cpu_choose(tokenCount, playerChoice):
+    """
+Handles the CPU player's turn. Randomly chooses between 1 and 3 tokens and\n
+subtracks from total remaining tokens.\n
+The heck of it is that the player CANNOT win.
+    """
     if gameRun == True:
         if tokenCount > 3 and tokens != None:
             print(f"Tokens left: {tokenCount} | How many tokens do you want to take? (1-3)")
@@ -33,6 +42,9 @@ def cpu_choose(tokenCount, playerChoice):
             pass
 
 def check_if_win(totalTokens):
+    """
+Checks whether to end the game due to tokens running out or continue game.
+    """
     if totalTokens == 0:
         print("Big winner over here!")
         return False
